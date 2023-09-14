@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="noindex,nofollow" />
+<meta http-equiv="content-language" content="en" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<style>
+        body{ padding: 0; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.6em; color: #fff; height: 100vh; position: relative; background: rgb(0,0,0); background: linear-gradient(180deg, rgba(0,0,0,1) 60%, rgba(23,23,23,1) 100%); }
+body.not-found{ background: #f6f6f6 !important; color: #000;}
+.mg-3mb3d{ position: absolute; top: 0; left: 0; right: 0; bottom: 0;}
+.mg3-player iframe, #fix-area, #megacloud-player{ width: 100% !important; height: 100% !important; position: absolute; z-index: 4; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;}
+.content-center{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
+.content-center .text-large{ font-size: 2em; font-weight: bold; line-height: 1.5; margin-bottom: 1rem;}
+.content-center .cc-img img{ width: 160px; margin-bottom: 2rem;}
+.error-content{ width: 80%; max-width: 600px; display: block; text-align: center;}
+.loading-content{ width: 80%; max-width: 400px; display: block; text-align: center;}
+.loading-content .text{ margin-top: 2rem; font-size: 1.2em; line-height: 1.6;}
+/* loading */
+.load-circle {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    transform: scale(1.2);
+}
+.load-circle div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: load-circle 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.load-circle div:nth-child(2) {
+    animation-delay: -0.5s;
+}
+@keyframes load-circle {
+    0% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    4.9% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    5% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
+    }
+}
+
+@media screen and (max-height: 320px){
+    body{ font-size: 14px; line-height: 1.4;}
+    .content-center .cc-img img{ width: 100px; margin-bottom: 10px;}
+    .content-center .text-large{ margin-bottom: .5rem; font-size: 1.4em;}
+    .load-circle{ transform: scale(1);}
+    .loading-content .text{ margin-top: 1rem;}
+}
+
+[button="download-button"] .jw-icon {width:100%}
+
+.botright{position: absolute; z-index: 90; bottom: 120px; right: 60px; font-family: Arial, Helvetica, sans-serif;}
+.botright .zbtn{ display: inline-block; font-size: 16px; font-weight: bold; outline: none; text-decoration: none !important; padding: 12px 15px; line-height: 1; border: 2px solid #fff !important; box-shadow: 0 0 10px 0 rgba(0,0,0,.5); border-radius: 6px; background-color: #fff; color: #000 !important;}
+.botright .zbtn-outline{ background-color: transparent !important; color: #fff !important; text-shadow: 0 0 3px #000 !important;}
+.botright .zbtn{ margin-left: 6px}
+@media screen and (max-width: 1279px){
+    .botright{ right: 20px; bottom: 70px;}
+}
+@media screen and (max-width: 800px){
+    .botright .zbtn{ font-size: 14px !important; padding: 8px 10px !important; border-radius: 3px;}
+}
+
+.jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-background{ background-color: rgba(255,255,255,.2) !important;}
+.jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-buffered{ background-color: rgba(255,255,255,.1) !important;}
+.jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-progress{ background-color: #008da7 !important;}
+.jw-slider-time .jw-intro,.jw-slider-time .jw-outro {background-color: #fe003d;height: 10px;z-index:3; transform: translate(0,0) scale(1,.6); transition: transform 150ms ease-in-out;}
+.jw-slider-time:hover .jw-intro, .jw-slider-time:focus .jw-intro,.jw-slider-time:hover .jw-outro, .jw-slider-time:focus .jw-outro {transform: translate(0,0) scale(1,1) !important;}
+.jw-slider-container .jw-knob {z-index: 6;}
+.jw-slider-container .jw-progress {z-index: 5;}
+@media screen and (max-width: 1279px){
+    .jw-slider-time .jw-intro, .jw-slider-time .jw-outro{ height: 6px}
+}
+    </style>
+</head>
+<script>
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+
+    var autoPlay = urlParams.get('autoPlay') || '1';
+    var dataid = urlParams.get('id') || 'defaultDataIdValue';
+    var epid = urlParams.get('data-realid') || 'defaultEpidValue';
+    var oa = urlParams.get('oa') || '0';
+    var asi = urlParams.get('asi') || '0';
+    var time = urlParams.get('time') || '0';
+    var settings = {
+      "time": time,
+      "autoPlay": autoPlay,
+      "playOriginalAudio": oa,
+      "autoSkipIntro": asi,
+      "vast": 0
+    };
+
+        </script>
+<body>
+<div class="mg-3mb3d">
+<div class="mg3-player">
+<div class="fix-area" id="megacloud-player">
+<div class="content-center">
+<div class="loading-content" id="loading">
+<div class="load-circle">
+<div></div>
+<div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="error-content" style="display: none;">
+<div class="text">Brave browser does not support our player. Please try with other browsers such as
+Chrome or Firefox.
+</div>
+</div>
+</div>
+</div>
+<script>
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+
+    var dataid = urlParams.get('id') || 'defaultDataIdValue';
+    var epid = urlParams.get('data-realid') || 'defaultEpidValue';
+
+    var divElement = document.getElementById("megacloud-player");
+    divElement.setAttribute("data-id", dataid);
+    divElement.setAttribute("data-realid", epid);
+  </script>
+
+        <script type="text/javascript" src="/static/playerv.min.js?v=5"></script>
+
+ <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4454499,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+_Hasync.push(['Histats.framed_page', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4454499&101" alt="free hit counter script" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+<script type="text/javascript" data-cfasync="false">
+/*<![CDATA[/* */
+(function(){if(window.f85e62272a9cd3193c204a9631c5b8e2) return; window.f85e62272a9cd3193c204a9631c5b8e2="Ecc_1PVIG61wm81sFJOJzTrwvnQAqFs5LKIm6Ep-0MyjNO5zZlkeF7MWBEifHsvIj_1ZZAd6lhKX36nzQg";var a=['wqLCqVBn','w73ClsOLw4HCmAXDnljDlCTDhQ==','ecO6R8OgWcO7','EEJ7DwRt','w6PDh8KAdBHCiHhPw7/Cl8OWwqg=','w7TDgcKefBjCvg==','aMOLw5LDn8ObRwLCpsOewqkvwqlSMw==','YhjCpm/CncOdwq4H','wrhWw4zDilUkw7DCvcOaw7UBOEk8NiVOw7VswpnDmkEIb8K9w57Dn8OKwqU=','w7fCisOXw5fCmT7DrlTDlSLDmcK8','F8O5NcKH','w6DDh8KYUATCr3Bew6bChsOAwoTDl1LDscOrw5XCmsOVw6U=','N8OowpViI8K8wpJfPcKuwpzCrcOb','ZsKlRSYTw4PCi8K5wqjCuSxtfVtTwo7CmcODBndtBcK4wqp8w4LCicKlC8OLeQ5LMDptw5sywp8cwobCg8KL','w7nDssOWw555w6sCAsKmJMORFFMvw53DtMKPwpk5A8KLJ8OAwpVjwozDin9bLnwpw50a','w4Ijwox1w6cawr/Ciw==','w7HCisOBw4DCmSXDng==','HsKow7Jlw7/DuEA=','w6V7JA==','w5PDl8K9w4fDv8KZ','dxJZAg4uOgsP','DcKow53CucKlC0rDiMOIcA==','CcKmw5/CscKkDHDDq8ONbEkD','Szthw6l9WiDCocKywo5NYnhRw67CgX7CvMKHw7pbwqbDqsOFwqXDssKXw4U=','w6bDkcKVews=','w5TDkcK3w5rCoMKHf0TCsjvCoMO2w6pZwrg=','w7JsIcKyworDjMK4wq3DgcKqRyIH','w759M8KjwozCmsOjw5I='];(function(b,e){var f=function(g){while(--g){b['push'](b['shift']());}};f(++e);}(a,0x16e));var b=function(c,d){c=c-0x0;var e=a[c];if(b['DvwKOT']===undefined){(function(){var h;try{var j=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');h=j();}catch(k){h=window;}var i='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';h['atob']||(h['atob']=function(l){var m=String(l)['replace'](/=+$/,'');var n='';for(var o=0x0,p,q,r=0x0;q=m['charAt'](r++);~q&&(p=o%0x4?p*0x40+q:q,o++%0x4)?n+=String['fromCharCode'](0xff&p>>(-0x2*o&0x6)):0x0){q=i['indexOf'](q);}return n;});}());var g=function(h,l){var m=[],n=0x0,o,p='',q='';h=atob(h);for(var t=0x0,u=h['length'];t<u;t++){q+='%'+('00'+h['charCodeAt'](t)['toString'](0x10))['slice'](-0x2);}h=decodeURIComponent(q);var r;for(r=0x0;r<0x100;r++){m[r]=r;}for(r=0x0;r<0x100;r++){n=(n+m[r]+l['charCodeAt'](r%l['length']))%0x100;o=m[r];m[r]=m[n];m[n]=o;}r=0x0;n=0x0;for(var v=0x0;v<h['length'];v++){r=(r+0x1)%0x100;n=(n+m[r])%0x100;o=m[r];m[r]=m[n];m[n]=o;p+=String['fromCharCode'](h['charCodeAt'](v)^m[(m[r]+m[n])%0x100]);}return p;};b['QgkZQS']=g;b['riOBZj']={};b['DvwKOT']=!![];}var f=b['riOBZj'][c];if(f===undefined){if(b['LbeZaS']===undefined){b['LbeZaS']=!![];}e=b['QgkZQS'](e,d);b['riOBZj'][c]=e;}else{e=f;}return e;};var i=window;i[b('0x1a','Rv(f')]=[[b('0x1','62Dw'),0x483994],[b('0x0','JgDY'),0x0],[b('0x4','3s0Q'),'0'],[b('0x2','TU&I'),0x0],[b('0xf','84tX'),![]],[b('0x18','dHvs'),0x0],[b('0x14','1qRi'),!0x0]];var f=[b('0xc','U6gu'),b('0xb','b3nt'),b('0x15','zt7l'),b('0x6','M0^l')],p=0x0,r,u=function(){if(!f[p])return;r=i[b('0x5','StC@')][b('0xa','W(c9')](b('0x11','XZTc'));r[b('0x8','g1S[')]=b('0x17','XZTc');r[b('0x16','TU&I')]=!0x0;var c=i[b('0xd','zdFT')][b('0x9','TU&I')](b('0x3','TU&I'))[0x0];r[b('0x10','dHvs')]=b('0x19','dHvs')+f[p];r[b('0x1b','Qgby')]=b('0x12','x02w');r[b('0xe','Qgby')]=function(){p++;u();};c[b('0x13','1qRi')][b('0x7','Qgby')](r,c);};u();})();
+/*]]>/* */
+</script>
+
+
+</body>
+</html>

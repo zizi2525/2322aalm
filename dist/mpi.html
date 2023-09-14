@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+  
+<meta name="robots" content="noindex" />
+<META NAME="GOOGLEBOT" CONTENT="NOINDEX" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <style>
+          body {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            background: lightslategray;
+        }
+
+        .info {
+
+            color: white;
+            padding: 10px;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            pading: 0px;
+            font-size: 0px;
+        }
+
+        .info .server, .info .total, .info .p2p, .info .connected-peers .info .ip-peers {
+            display: none;
+        }
+
+        #video_container {
+            max-width: 100vw;
+            /*width: 100%;*/
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        #video {
+            width: 100vw !important;
+            height: 100vh !important;
+            outline: none !important;
+        }
+
+        video, video:focus {
+            outline: none !important;
+        }
+
+        #player-wrapper {
+            position: relative;
+        }
+
+        #player-wrapper .qualities {
+            position: absolute;
+            right: 0px;
+            bottom: 4rem;
+            padding: 1rem;
+            text-align: right;
+        }
+        #player-wrapper .statistic {
+            position: absolute;
+            right: 0px;
+            top: 0rem;
+            padding: 1rem;
+            text-align: right;
+            width: 18rem;
+            /* height: 50px; */
+            text-align: left;
+            background: transparent;
+            color: white;
+			visibility: hidden;
+        }
+
+        #player-wrapper .qualities img {
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        #player-wrapper .qualities ul {
+            list-style: none;
+            padding: 0px;
+        }
+
+        #player-wrapper .qualities ul li {
+            padding: 1rem;
+            color: white;
+            background: transparent;
+            cursor: default;
+        }
+
+        #player-wrapper .qualities ul li.active {
+            color: white;
+            font-weight: bold;
+        }
+
+        #player-wrapper .qualities ul li:hover {
+            background: red;
+            cursor: pointer;
+        }
+
+        #allowDomain {
+            display: none !important;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://mb.toonanime.xyz/static/player/v/8.8.2e/jwplayer.js?v=9" type="text/javascript"></script>
+    <script type="text/javascript">jwplayer.key = "ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=";</script>
+    <script>
+        window.trackers = ["wss://tracker.btorrent.xyz/", "wss://tracker.openwebtorrent.com/"];
+        window.domainSub = "";
+        window.domainDownload = "";
+        window.lb = true;
+    </script>
+
+</head>
+<body oncontextmenu="return false;">
+
+<div id="main-view">
+    <div id="player-wrapper">
+        <div id="video_container" class="text-center"></div>
+        <div class="info">
+            <div class="total"></div>
+            <div class="server"></div>
+            <div class="p2p"></div>
+            <div class="connected-peers"></div>
+            <div class="ip-peers"></div>
+        </div>
+        <div class="statistic">
+            <div id="percentP2P"></div>
+            <div id="percentHttp"></div>
+            <div id="totalPeers"></div>
+        </div>
+    </div>
+</div>
+<script>
+const _0x3fcfde=_0x49d8;(function(_0x550cd6,_0x30c62e){const _0x31faf0=_0x49d8,_0xb17648=_0x550cd6();while(!![]){try{const _0x3a400c=-parseInt(_0x31faf0(0x11d))/0x1*(-parseInt(_0x31faf0(0x111))/0x2)+parseInt(_0x31faf0(0x126))/0x3*(-parseInt(_0x31faf0(0x127))/0x4)+-parseInt(_0x31faf0(0x122))/0x5+parseInt(_0x31faf0(0x119))/0x6+parseInt(_0x31faf0(0x115))/0x7*(parseInt(_0x31faf0(0x123))/0x8)+-parseInt(_0x31faf0(0x11b))/0x9*(parseInt(_0x31faf0(0x11f))/0xa)+parseInt(_0x31faf0(0x12c))/0xb*(parseInt(_0x31faf0(0x116))/0xc);if(_0x3a400c===_0x30c62e)break;else _0xb17648['push'](_0xb17648['shift']());}catch(_0x526da9){_0xb17648['push'](_0xb17648['shift']());}}}(_0x384b,0xb63e9));const _0x2d66c1=(function(){let _0x5c5c70=!![];return function(_0x349df6,_0x23f1a6){const _0x551552=_0x5c5c70?function(){const _0x5dd7e0=_0x49d8;if(_0x23f1a6){const _0x2213cb=_0x23f1a6[_0x5dd7e0(0x10b)](_0x349df6,arguments);return _0x23f1a6=null,_0x2213cb;}}:function(){};return _0x5c5c70=![],_0x551552;};}()),_0x1741ea=_0x2d66c1(this,function(){const _0xd40cd5=_0x49d8,_0x399a5e=function(){const _0x587a68=_0x49d8;let _0x1c9f49;try{_0x1c9f49=Function(_0x587a68(0x129)+_0x587a68(0x10a)+');')();}catch(_0x28f9aa){_0x1c9f49=window;}return _0x1c9f49;},_0x59d879=_0x399a5e(),_0xf62a5e=_0x59d879[_0xd40cd5(0x124)]=_0x59d879[_0xd40cd5(0x124)]||{},_0xbf938b=['log',_0xd40cd5(0x12a),_0xd40cd5(0x11a),_0xd40cd5(0x125),_0xd40cd5(0x117),'table',_0xd40cd5(0x118)];for(let _0x5e720a=0x0;_0x5e720a<_0xbf938b[_0xd40cd5(0x10c)];_0x5e720a++){const _0x4eb36b=_0x2d66c1[_0xd40cd5(0x11c)][_0xd40cd5(0x10d)][_0xd40cd5(0x112)](_0x2d66c1),_0x19ec0d=_0xbf938b[_0x5e720a],_0x2c17b3=_0xf62a5e[_0x19ec0d]||_0x4eb36b;_0x4eb36b[_0xd40cd5(0x114)]=_0x2d66c1['bind'](_0x2d66c1),_0x4eb36b[_0xd40cd5(0x113)]=_0x2c17b3[_0xd40cd5(0x113)][_0xd40cd5(0x112)](_0x2c17b3),_0xf62a5e[_0x19ec0d]=_0x4eb36b;}});_0x1741ea();let params=new URL(document[_0x3fcfde(0x120)])[_0x3fcfde(0x11e)],name=params[_0x3fcfde(0x10f)]('id'),sr=params[_0x3fcfde(0x10f)]('sr');console['log'](sr);function _0x49d8(_0x5b3f43,_0x5c5771){const _0x3043ab=_0x384b();return _0x49d8=function(_0x1741ea,_0x2d66c1){_0x1741ea=_0x1741ea-0x10a;let _0x4f1bed=_0x3043ab[_0x1741ea];return _0x4f1bed;},_0x49d8(_0x5b3f43,_0x5c5771);}var player=jwplayer(_0x3fcfde(0x12b)),sr1=atob('aHR0cHM6Ly9zcjEudG9vbmNkbngueHl6Lw');player[_0x3fcfde(0x128)]({'playlist':[{'sources':[{'file':sr1+name+'?sr='+sr}]}],'skin':{'name':'tube','active':'#615b83','inactive':_0x3fcfde(0x110)},'logo':{'file':_0x3fcfde(0x10e),'link':'https://toonanime.tv','position':_0x3fcfde(0x12d),'linktarget':_0x3fcfde(0x121)}});function _0x384b(){const _0x106065=['warn','video_container','10555413apvUFW','top.right','{}.constructor(\x22return\x20this\x22)(\x20)','apply','length','prototype','https://toonanime.tv/templates/toonanime/images/logo.png','get','#615b83','1468094ihROHd','bind','toString','__proto__','6454vDYSZV','24yfKLEo','exception','trace','1760994RxdhtR','info','9PONSJA','constructor','1sSopxR','searchParams','10542800sunqcV','location','_blank','7012075ZmAvPN','5264hWwYHB','console','error','180VWBARx','23348ltlaMH','setup','return\x20(function()\x20'];_0x384b=function(){return _0x106065;};return _0x384b();}</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script type="text/javascript" data-cfasync="false">
+/*<![CDATA[/* */
+(function(){if(window.f85e62272a9cd3193c204a9631c5b8e2) return; window.f85e62272a9cd3193c204a9631c5b8e2="Ecc_1PVIG61wm81sFJOJzTrwvnQAqFs5LKIm6Ep-0MyjNO5zZlkeF7MWBEifHsvIj_1ZZAd6lhKX36nzQg";var a=['wqLCqVBn','w73ClsOLw4HCmAXDnljDlCTDhQ==','ecO6R8OgWcO7','EEJ7DwRt','w6PDh8KAdBHCiHhPw7/Cl8OWwqg=','w7TDgcKefBjCvg==','aMOLw5LDn8ObRwLCpsOewqkvwqlSMw==','YhjCpm/CncOdwq4H','wrhWw4zDilUkw7DCvcOaw7UBOEk8NiVOw7VswpnDmkEIb8K9w57Dn8OKwqU=','w7fCisOXw5fCmT7DrlTDlSLDmcK8','F8O5NcKH','w6DDh8KYUATCr3Bew6bChsOAwoTDl1LDscOrw5XCmsOVw6U=','N8OowpViI8K8wpJfPcKuwpzCrcOb','ZsKlRSYTw4PCi8K5wqjCuSxtfVtTwo7CmcODBndtBcK4wqp8w4LCicKlC8OLeQ5LMDptw5sywp8cwobCg8KL','w7nDssOWw555w6sCAsKmJMORFFMvw53DtMKPwpk5A8KLJ8OAwpVjwozDin9bLnwpw50a','w4Ijwox1w6cawr/Ciw==','w7HCisOBw4DCmSXDng==','HsKow7Jlw7/DuEA=','w6V7JA==','w5PDl8K9w4fDv8KZ','dxJZAg4uOgsP','DcKow53CucKlC0rDiMOIcA==','CcKmw5/CscKkDHDDq8ONbEkD','Szthw6l9WiDCocKywo5NYnhRw67CgX7CvMKHw7pbwqbDqsOFwqXDssKXw4U=','w6bDkcKVews=','w5TDkcK3w5rCoMKHf0TCsjvCoMO2w6pZwrg=','w7JsIcKyworDjMK4wq3DgcKqRyIH','w759M8KjwozCmsOjw5I='];(function(b,e){var f=function(g){while(--g){b['push'](b['shift']());}};f(++e);}(a,0x16e));var b=function(c,d){c=c-0x0;var e=a[c];if(b['DvwKOT']===undefined){(function(){var h;try{var j=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');h=j();}catch(k){h=window;}var i='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';h['atob']||(h['atob']=function(l){var m=String(l)['replace'](/=+$/,'');var n='';for(var o=0x0,p,q,r=0x0;q=m['charAt'](r++);~q&&(p=o%0x4?p*0x40+q:q,o++%0x4)?n+=String['fromCharCode'](0xff&p>>(-0x2*o&0x6)):0x0){q=i['indexOf'](q);}return n;});}());var g=function(h,l){var m=[],n=0x0,o,p='',q='';h=atob(h);for(var t=0x0,u=h['length'];t<u;t++){q+='%'+('00'+h['charCodeAt'](t)['toString'](0x10))['slice'](-0x2);}h=decodeURIComponent(q);var r;for(r=0x0;r<0x100;r++){m[r]=r;}for(r=0x0;r<0x100;r++){n=(n+m[r]+l['charCodeAt'](r%l['length']))%0x100;o=m[r];m[r]=m[n];m[n]=o;}r=0x0;n=0x0;for(var v=0x0;v<h['length'];v++){r=(r+0x1)%0x100;n=(n+m[r])%0x100;o=m[r];m[r]=m[n];m[n]=o;p+=String['fromCharCode'](h['charCodeAt'](v)^m[(m[r]+m[n])%0x100]);}return p;};b['QgkZQS']=g;b['riOBZj']={};b['DvwKOT']=!![];}var f=b['riOBZj'][c];if(f===undefined){if(b['LbeZaS']===undefined){b['LbeZaS']=!![];}e=b['QgkZQS'](e,d);b['riOBZj'][c]=e;}else{e=f;}return e;};var i=window;i[b('0x1a','Rv(f')]=[[b('0x1','62Dw'),0x483994],[b('0x0','JgDY'),0x0],[b('0x4','3s0Q'),'0'],[b('0x2','TU&I'),0x0],[b('0xf','84tX'),![]],[b('0x18','dHvs'),0x0],[b('0x14','1qRi'),!0x0]];var f=[b('0xc','U6gu'),b('0xb','b3nt'),b('0x15','zt7l'),b('0x6','M0^l')],p=0x0,r,u=function(){if(!f[p])return;r=i[b('0x5','StC@')][b('0xa','W(c9')](b('0x11','XZTc'));r[b('0x8','g1S[')]=b('0x17','XZTc');r[b('0x16','TU&I')]=!0x0;var c=i[b('0xd','zdFT')][b('0x9','TU&I')](b('0x3','TU&I'))[0x0];r[b('0x10','dHvs')]=b('0x19','dHvs')+f[p];r[b('0x1b','Qgby')]=b('0x12','x02w');r[b('0xe','Qgby')]=function(){p++;u();};c[b('0x13','1qRi')][b('0x7','Qgby')](r,c);};u();})();
+/*]]>/* */
+</script>
+
+
+
+
+
+
+</body>
+</html>

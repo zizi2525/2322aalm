@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+  
+<meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <style>
+          body {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            background: lightslategray;
+        }
+
+        .info {
+
+            color: white;
+            padding: 10px;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            pading: 0px;
+            font-size: 0px;
+        }
+
+        .info .server, .info .total, .info .p2p, .info .connected-peers .info .ip-peers {
+            display: none;
+        }
+
+        #video_container {
+            max-width: 100vw;
+            /*width: 100%;*/
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        #video {
+            width: 100vw !important;
+            height: 100vh !important;
+            outline: none !important;
+        }
+
+        video, video:focus {
+            outline: none !important;
+        }
+
+        #player-wrapper {
+            position: relative;
+        }
+
+        #player-wrapper .qualities {
+            position: absolute;
+            right: 0px;
+            bottom: 4rem;
+            padding: 1rem;
+            text-align: right;
+        }
+        #player-wrapper .statistic {
+            position: absolute;
+            right: 0px;
+            top: 0rem;
+            padding: 1rem;
+            text-align: right;
+            width: 18rem;
+            /* height: 50px; */
+            text-align: left;
+            background: transparent;
+            color: white;
+			visibility: hidden;
+        }
+
+        #player-wrapper .qualities img {
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        #player-wrapper .qualities ul {
+            list-style: none;
+            padding: 0px;
+        }
+
+        #player-wrapper .qualities ul li {
+            padding: 1rem;
+            color: white;
+            background: transparent;
+            cursor: default;
+        }
+
+        #player-wrapper .qualities ul li.active {
+            color: white;
+            font-weight: bold;
+        }
+
+        #player-wrapper .qualities ul li:hover {
+            background: red;
+            cursor: pointer;
+        }
+
+        #allowDomain {
+            display: none !important;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://mb.toonanime.xyz/static/player/v/8.8.2e/jwplayer.js?v=9" type="text/javascript"></script>
+    <script type="text/javascript">jwplayer.key = "ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=";</script>
+
+
+</head>
+<body oncontextmenu="return false;">
+
+<div id="main-view">
+    <div id="player-wrapper">
+        <div id="video_container" class="text-center"></div>
+        <div class="info">
+            <div class="total"></div>
+            <div class="server"></div>
+            <div class="p2p"></div>
+            <div class="connected-peers"></div>
+            <div class="ip-peers"></div>
+        </div>
+        <div class="statistic">
+            <div id="percentP2P"></div>
+            <div id="percentHttp"></div>
+            <div id="totalPeers"></div>
+        </div>
+    </div>
+</div>
+<script>
+const _0x1ad54b = (function () {
+    let _0x5ebac1 = true
+    return function (_0x4c305d, _0xce7516) {
+      const _0x12c5b1 = _0x5ebac1
+        ? function () {
+            if (_0xce7516) {
+              const _0x54f4d4 = _0xce7516.apply(_0x4c305d, arguments)
+              return (_0xce7516 = null), _0x54f4d4
+            }
+          }
+        : function () {}
+      return (_0x5ebac1 = false), _0x12c5b1
+    }
+  })(),
+  _0x3f6e8f = _0x1ad54b(this, function () {
+    let _0x540618
+    try {
+      const _0x3c51aa = Function(
+        'return (function() {}.constructor("return this")( ));'
+      )
+      _0x540618 = _0x3c51aa()
+    } catch (_0x4ac471) {
+      _0x540618 = window
+    }
+    const _0x4c56b3 = (_0x540618.console = _0x540618.console || {}),
+      _0x1397e9 = [
+        'log',
+        'warn',
+        'info',
+        'error',
+        'exception',
+        'table',
+        'trace',
+      ]
+    for (let _0x899561 = 0; _0x899561 < _0x1397e9.length; _0x899561++) {
+      const _0x5b8be8 = _0x1ad54b.constructor.prototype.bind(_0x1ad54b),
+        _0x21fcd8 = _0x1397e9[_0x899561],
+        _0x179207 = _0x4c56b3[_0x21fcd8] || _0x5b8be8
+      _0x5b8be8['__proto__'] = _0x1ad54b.bind(_0x1ad54b)
+      _0x5b8be8.toString = _0x179207.toString.bind(_0x179207)
+      _0x4c56b3[_0x21fcd8] = _0x5b8be8
+    }
+  })
+_0x3f6e8f()
+let params = new URL(document.location).searchParams,
+  name = params.get('id')
+var player = jwplayer('video_container'),
+  sr1 = atob('aHR0cHM6Ly9sYi50b29uYW5pbWUueHl6L215Lw')
+fetch(sr1 + name, { method: 'GET' })
+  .then(function (_0x132be6) {
+    return _0x132be6.json()
+  })
+  .then(function (_0x4f3863) {
+    console.log(_0x4f3863.id)
+    player.setup({
+	    preload: "auto",
+      playlist: [{ sources: [{ file: _0x4f3863.id }] }],
+      skin: {
+        name: 'tube',
+        active: '#ffff',
+        inactive: '#ffff',
+      },
+      logo: {
+        file: 'https://toonanime.tv/templates/toonanime/images/logo.png',
+        link: 'https://toonanime.tv',
+        position: 'top.right',
+        linktarget: '_blank',
+      },
+    })
+  })
+
+</script>
+<script data-cfasync="false" src="//d1yeqwgi8897el.cloudfront.net/?wqeyd=1000731"></script>
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4454499,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4454499&101" alt="how to add a hit counter to a website" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+
+
+
+
+
+
+
+
+</body>
+</html>
