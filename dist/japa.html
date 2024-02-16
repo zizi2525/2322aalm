@@ -113,7 +113,7 @@ body.not-found{ background: #f6f6f6 !important; color: #000;}
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
 
-    var autoPlay = urlParams.get('autoPlay') || '1';
+    var autoPlay = urlParams.get('autoPlay') || '0';
     var dataid = urlParams.get('id') || 'defaultDataIdValue';
     var epid = urlParams.get('data-realid') || 'defaultEpidValue';
     var oa = urlParams.get('oa') || '0';
