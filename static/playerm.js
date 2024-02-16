@@ -22973,7 +22973,7 @@ var U = {
     I,
     g;
     
-const D = "https://lb.toonanime.xyz/my2/" + H+"?epid=" +rrrid,
+const D = "https://cdn2.vidcdn.xyz/my2/" + H+"?epid=" +rrrid,
     V = zz(0xd6a, "1[xf"),
     j = zM(0xa08, 0x753),
     x = zz(0x53d, "1[xf"),
