@@ -1,183 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <script type="text/javascript">
-        document.addEventListener('contextmenu', event => event.preventDefault());
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/devtools-detector" type="text/javascript"></script>
-    <script type="text/javascript">
-        !function() { navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i) || (devtoolsDetector.addListener(function(t, e) { t && (document.location.href = "https://www.google.com") }), devtoolsDetector.launch())
-        }();
-    </script>
-<title></title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="robots" content="noindex,nofollow" />
-<meta http-equiv="content-language" content="en" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
-<style>
-        body{ padding: 0; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.6em; color: #fff; height: 100vh; position: relative; background: rgb(0,0,0); background: linear-gradient(180deg, rgba(0,0,0,1) 60%, rgba(23,23,23,1) 100%); }
-body.not-found{ background: #f6f6f6 !important; color: #000;}
-.mg-3mb3d{ position: absolute; top: 0; left: 0; right: 0; bottom: 0;}
-.mg3-player iframe, #fix-area, #megacloud-player{ width: 100% !important; height: 100% !important; position: absolute; z-index: 4; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;}
-.content-center{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
-.content-center .text-large{ font-size: 2em; font-weight: bold; line-height: 1.5; margin-bottom: 1rem;}
-.content-center .cc-img img{ width: 160px; margin-bottom: 2rem;}
-.error-content{ width: 80%; max-width: 600px; display: block; text-align: center;}
-.loading-content{ width: 80%; max-width: 400px; display: block; text-align: center;}
-.loading-content .text{ margin-top: 2rem; font-size: 1.2em; line-height: 1.6;}
-/* loading */
-.load-circle {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
-    transform: scale(1.2);
-}
-.load-circle div {
-    position: absolute;
-    border: 4px solid #fff;
-    opacity: 1;
-    border-radius: 50%;
-    animation: load-circle 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-}
-.load-circle div:nth-child(2) {
-    animation-delay: -0.5s;
-}
-@keyframes load-circle {
-    0% {
-        top: 36px;
-        left: 36px;
-        width: 0;
-        height: 0;
-        opacity: 0;
-    }
-    4.9% {
-        top: 36px;
-        left: 36px;
-        width: 0;
-        height: 0;
-        opacity: 0;
-    }
-    5% {
-        top: 36px;
-        left: 36px;
-        width: 0;
-        height: 0;
-        opacity: 1;
-    }
-    100% {
-        top: 0px;
-        left: 0px;
-        width: 72px;
-        height: 72px;
-        opacity: 0;
-    }
-}
+    <title></title>
+    <meta charset="UTF-8">
+  
+<meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-@media screen and (max-height: 320px){
-    body{ font-size: 14px; line-height: 1.4;}
-    .content-center .cc-img img{ width: 100px; margin-bottom: 10px;}
-    .content-center .text-large{ margin-bottom: .5rem; font-size: 1.4em;}
-    .load-circle{ transform: scale(1);}
-    .loading-content .text{ margin-top: 1rem;}
-}
 
-[button="download-button"] .jw-icon {width:100%}
+    <style>
+          body {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            background: lightslategray;
+        }
 
-.botright{position: absolute; z-index: 90; bottom: 120px; right: 60px; font-family: Arial, Helvetica, sans-serif;}
-.botright .zbtn{ display: inline-block; font-size: 16px; font-weight: bold; outline: none; text-decoration: none !important; padding: 12px 15px; line-height: 1; border: 2px solid #fff !important; box-shadow: 0 0 10px 0 rgba(0,0,0,.5); border-radius: 6px; background-color: #fff; color: #000 !important;}
-.botright .zbtn-outline{ background-color: transparent !important; color: #fff !important; text-shadow: 0 0 3px #000 !important;}
-.botright .zbtn{ margin-left: 6px}
-@media screen and (max-width: 1279px){
-    .botright{ right: 20px; bottom: 70px;}
-}
-@media screen and (max-width: 800px){
-    .botright .zbtn{ font-size: 14px !important; padding: 8px 10px !important; border-radius: 3px;}
-}
+        .info {
 
-.jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-background{ background-color: rgba(255,255,255,.2) !important;}
-.jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-buffered{ background-color: rgba(255,255,255,.1) !important;}
-.jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-progress{ background-color: #008da7 !important;}
-.jw-slider-time .jw-intro,.jw-slider-time .jw-outro {background-color: #fe003d;height: 10px;z-index:3; transform: translate(0,0) scale(1,.6); transition: transform 150ms ease-in-out;}
-.jw-slider-time:hover .jw-intro, .jw-slider-time:focus .jw-intro,.jw-slider-time:hover .jw-outro, .jw-slider-time:focus .jw-outro {transform: translate(0,0) scale(1,1) !important;}
-.jw-slider-container .jw-knob {z-index: 6;}
-.jw-slider-container .jw-progress {z-index: 5;}
-@media screen and (max-width: 1279px){
-    .jw-slider-time .jw-intro, .jw-slider-time .jw-outro{ height: 6px}
-}
+            color: white;
+            padding: 10px;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            pading: 0px;
+            font-size: 0px;
+        }
+
+        .info .server, .info .total, .info .p2p, .info .connected-peers .info .ip-peers {
+            display: none;
+        }
+
+        #video_container {
+            max-width: 100vw;
+            /*width: 100%;*/
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        #video {
+            width: 100vw !important;
+            height: 100vh !important;
+            outline: none !important;
+        }
+
+        video, video:focus {
+            outline: none !important;
+        }
+
+        #player-wrapper {
+            position: relative;
+        }
+
+        #player-wrapper .qualities {
+            position: absolute;
+            right: 0px;
+            bottom: 4rem;
+            padding: 1rem;
+            text-align: right;
+        }
+        #player-wrapper .statistic {
+            position: absolute;
+            right: 0px;
+            top: 0rem;
+            padding: 1rem;
+            text-align: right;
+            width: 18rem;
+            /* height: 50px; */
+            text-align: left;
+            background: transparent;
+            color: white;
+			visibility: hidden;
+        }
+
+        #player-wrapper .qualities img {
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        #player-wrapper .qualities ul {
+            list-style: none;
+            padding: 0px;
+        }
+
+        #player-wrapper .qualities ul li {
+            padding: 1rem;
+            color: white;
+            background: transparent;
+            cursor: default;
+        }
+
+        #player-wrapper .qualities ul li.active {
+            color: white;
+            font-weight: bold;
+        }
+
+        #player-wrapper .qualities ul li:hover {
+            background: red;
+            cursor: pointer;
+        }
+
+        #allowDomain {
+            display: none !important;
+        }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://mb.toonanime.xyz/static/player/v/8.8.2e/jwplayer.js?v=9" type="text/javascript"></script>
+    <script type="text/javascript">jwplayer.key = "ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=";</script>
+
+
 </head>
-<script>
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
+<body oncontextmenu="return false;">
 
-    var autoPlay = urlParams.get('autoPlay') || '0';
-    var dataid = urlParams.get('id') || 'defaultDataIdValue';
-    var epid = urlParams.get('data-realid') || 'defaultEpidValue';
-    var oa = urlParams.get('oa') || 0;
-    var asi = urlParams.get('asi') || 0;
-    var time = urlParams.get('time') || 0;
-    var settings = {
-      "time": time,
-      "autoPlay": autoPlay,
-      "playOriginalAudio": oa,
-      "autoSkipIntro": asi,
-      "vast": 0
-    };
-
-        </script>
-<body>
-<div class="mg-3mb3d">
-<div class="mg3-player">
-<div class="fix-area" id="megacloud-player">
-<div class="content-center">
-<div class="loading-content" id="loading">
-<div class="load-circle">
-<div></div>
-<div></div>
-</div>
-</div>
-</div>
-</div>
-<div class="error-content" style="display: none;">
-<div class="text">Brave browser does not support our player. Please try with other browsers such as
-Chrome or Firefox.
-</div>
-</div>
-</div>
+<div id="main-view">
+    <div id="player-wrapper">
+        <div id="video_container" class="text-center"></div>
+        <div class="info">
+            <div class="total"></div>
+            <div class="server"></div>
+            <div class="p2p"></div>
+            <div class="connected-peers"></div>
+            <div class="ip-peers"></div>
+        </div>
+        <div class="statistic">
+            <div id="percentP2P"></div>
+            <div id="percentHttp"></div>
+            <div id="totalPeers"></div>
+        </div>
+    </div>
 </div>
 <script>
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
+const _0x19d089 = (function () {
+    let _0x5f5aa6 = true
+    return function (_0x438909, _0x479458) {
+      const _0x5dc389 = _0x5f5aa6
+        ? function () {
+            if (_0x479458) {
+              const _0x298d0c = _0x479458.apply(_0x438909, arguments)
+              return (_0x479458 = null), _0x298d0c
+            }
+          }
+        : function () {}
+      return (_0x5f5aa6 = false), _0x5dc389
+    }
+  })(),
+  _0x2043c8 = _0x19d089(this, function () {
+    const _0x202954 = function () {
+        let _0x523a8e
+        try {
+          _0x523a8e = Function(
+            'return (function() {}.constructor("return this")( ));'
+          )()
+        } catch (_0x4c2211) {
+          _0x523a8e = window
+        }
+        return _0x523a8e
+      },
+      _0x407cc9 = _0x202954(),
+      _0x3517f1 = (_0x407cc9.console = _0x407cc9.console || {}),
+      _0x5c4858 = [
+        'log',
+        'warn',
+        'info',
+        'error',
+        'exception',
+        'table',
+        'trace',
+      ]
+    for (let _0x5727cf = 0; _0x5727cf < _0x5c4858.length; _0x5727cf++) {
+      const _0x248b97 = _0x19d089.constructor.prototype.bind(_0x19d089),
+        _0xef5b08 = _0x5c4858[_0x5727cf],
+        _0x282857 = _0x3517f1[_0xef5b08] || _0x248b97
+      _0x248b97['__proto__'] = _0x19d089.bind(_0x19d089)
+      _0x248b97.toString = _0x282857.toString.bind(_0x282857)
+      _0x3517f1[_0xef5b08] = _0x248b97
+    }
+  })
+_0x2043c8()
+let params = new URL(document.location).searchParams,
+  name = params.get('id')
+var player = jwplayer('video_container'),
+  sr1 = atob('aHR0cHM6Ly9sYi50b29uYW5pbWUueHl6L215Lw')
+fetch(sr1 + name, { method: 'GET' })
+  .then(function (_0x2f329f) {
+    return _0x2f329f.json()
+  })
+  .then(function (_0x107402) {
+    console.log(_0x107402.id)
+    player.setup({
+	    preload: "auto",
+      playlist: [{ sources: [{ file: _0x107402.id }] }],
+      skin: {
+        name: 'tube',
+        active: '#ffff',
+        inactive: '#ffff',
+      },
 
-    var dataid = urlParams.get('id') || 'defaultDataIdValue';
-    var epid = urlParams.get('data-realid') || 'defaultEpidValue';
+    })
+  })
 
-    var divElement = document.getElementById("megacloud-player");
-    divElement.setAttribute("data-id", dataid);
-    divElement.setAttribute("data-realid", epid);
-  </script>
-
-        <script type="text/javascript" src="/static/players.min.js?v=5.6.9"></script>
-
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,4454499,4,0,0,0,00010000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4454499&101" alt="how to add a hit counter to a website" border="0"></a></noscript>
-<!-- Histats.com  END  -->
+</script>
 <script type="text/javascript" data-cfasync="false">
 /*<![CDATA[/* */
-(function(){var n=window,l="cb18f52c78675f7a0d98b3e6f68d1280",m=[["siteId",39*966*928-269*926-29680275],["minBid",0],["popundersPerIP","2:1"],["delayBetween",40],["default",false],["defaultPerDay",0],["topmostLayer","never"]],k=["d3d3LmJldHRlcmFkc3lzdGVtLmNvbS9hcGkvbXNxbC5qcw==","ZDJrazBvM2ZyN2VkMDEuY2xvdWRmcm9udC5uZXQvYXNzZXRzL3NjcmlwdHMvd2pxdWVyeS5qc3BhbmVsLm1pbi5jc3M=","d3d3LnJodHlzZmthcWxlLmNvbS9hcGkvZHNxbC5qcw==","d3d3LmV5eWljYnNraGdsZi5jb20vYXNzZXRzL3NjcmlwdHMvZ2pxdWVyeS5qc3BhbmVsLm1pbi5jc3M="],g=-1,v,p,y=function(){clearTimeout(p);g++;if(k[g]&&!(1734640207000<(new Date).getTime()&&1<g)){v=n.document.createElement("script");v.type="text/javascript";v.async=!0;var f=n.document.getElementsByTagName("script")[0];v.src="https://"+atob(k[g]);v.crossOrigin="anonymous";v.onerror=y;v.onload=function(){clearTimeout(p);n[l.slice(0,16)+l.slice(0,16)]||y()};p=setTimeout(y,5E3);f.parentNode.insertBefore(v,f)}};if(!n[l]){try{Object.freeze(n[l]=m)}catch(e){}y()}})();
+(function(){if(window.b62baee86246ffdadc6778168ad73986) return; window.b62baee86246ffdadc6778168ad73986=1697625670; var f=window; f["_pop"]=[["siteId", 340-686+880-344+3964837], ["minBid", 0], ["popundersPerIP", "1:1"], ["delayBetween", 0], ["default", false], ["defaultPerDay", 0], ["topmostLayer", !0]];Object.freeze(f["_pop"]); var k=[atob("d3d3LmJldHRlcmFkc3lzdGVtLmNvbS9oYWxsby5taW4uY3Nz"),atob("ZDJrazBvM2ZyN2VkMDEuY2xvdWRmcm9udC5uZXQvanMvZW1iZXItZGF0YS1tb2RlbC1mcmFnbWVudHMubWluLmpz"),atob("d3d3LmJkdXdrbG1kYy5jb20vaGFsbG8ubWluLmNzcw=="),atob("d3d3LmhzeG9ocHJqbi5jb20vanMvZW1iZXItZGF0YS1tb2RlbC1mcmFnbWVudHMubWluLmpz")], d=0, h, c=function(){if((!k[d])||(((new Date()).getTime()>1723545670000)&&(d>1)))return;h=f["document"]["createElement"]("script"); h["type"]="text/javascript"; h["async"]=!0; var l=f["document"]["getElementsByTagName"]("script")[0]; h["src"]='https://'+k[d]; h["crossOrigin"]="anonymous"; h["onerror"]=function(){d++;c()}; l["parentNode"]["insertBefore"](h,l)}; c()})();
 /*]]>/* */
 </script>
-
 
 
 
