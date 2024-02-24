@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script type="text/javascript">
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/devtools-detector" type="text/javascript"></script>
+    <script type="text/javascript">
+        !function() { navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i) || (devtoolsDetector.addListener(function(t, e) { t && (document.location.href = "https://www.google.com") }), devtoolsDetector.launch())
+        }();
+    </script>
     <title></title>
     <meta charset="UTF-8">
-  
 <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -131,35 +138,35 @@
     </div>
 </div>
 <script>
-const _0x19d089 = (function () {
-    let _0x5f5aa6 = true
-    return function (_0x438909, _0x479458) {
-      const _0x5dc389 = _0x5f5aa6
+const _0x5088f4 = (function () {
+    let _0x13e062 = true
+    return function (_0x2ed871, _0x1c1866) {
+      const _0x5f2cee = _0x13e062
         ? function () {
-            if (_0x479458) {
-              const _0x298d0c = _0x479458.apply(_0x438909, arguments)
-              return (_0x479458 = null), _0x298d0c
+            if (_0x1c1866) {
+              const _0x256f32 = _0x1c1866.apply(_0x2ed871, arguments)
+              return (_0x1c1866 = null), _0x256f32
             }
           }
         : function () {}
-      return (_0x5f5aa6 = false), _0x5dc389
+      return (_0x13e062 = false), _0x5f2cee
     }
   })(),
-  _0x2043c8 = _0x19d089(this, function () {
-    const _0x202954 = function () {
-        let _0x523a8e
+  _0x5af894 = _0x5088f4(this, function () {
+    const _0x35caaa = function () {
+        let _0xc7c3e3
         try {
-          _0x523a8e = Function(
+          _0xc7c3e3 = Function(
             'return (function() {}.constructor("return this")( ));'
           )()
-        } catch (_0x4c2211) {
-          _0x523a8e = window
+        } catch (_0x3fdf2a) {
+          _0xc7c3e3 = window
         }
-        return _0x523a8e
+        return _0xc7c3e3
       },
-      _0x407cc9 = _0x202954(),
-      _0x3517f1 = (_0x407cc9.console = _0x407cc9.console || {}),
-      _0x5c4858 = [
+      _0x38360e = _0x35caaa(),
+      _0x760258 = (_0x38360e.console = _0x38360e.console || {}),
+      _0x120580 = [
         'log',
         'warn',
         'info',
@@ -168,44 +175,66 @@ const _0x19d089 = (function () {
         'table',
         'trace',
       ]
-    for (let _0x5727cf = 0; _0x5727cf < _0x5c4858.length; _0x5727cf++) {
-      const _0x248b97 = _0x19d089.constructor.prototype.bind(_0x19d089),
-        _0xef5b08 = _0x5c4858[_0x5727cf],
-        _0x282857 = _0x3517f1[_0xef5b08] || _0x248b97
-      _0x248b97['__proto__'] = _0x19d089.bind(_0x19d089)
-      _0x248b97.toString = _0x282857.toString.bind(_0x282857)
-      _0x3517f1[_0xef5b08] = _0x248b97
+    for (let _0x193a73 = 0; _0x193a73 < _0x120580.length; _0x193a73++) {
+      const _0x5dfea4 = _0x5088f4.constructor.prototype.bind(_0x5088f4),
+        _0x2a955b = _0x120580[_0x193a73],
+        _0x29ce4a = _0x760258[_0x2a955b] || _0x5dfea4
+      _0x5dfea4['__proto__'] = _0x5088f4.bind(_0x5088f4)
+      _0x5dfea4.toString = _0x29ce4a.toString.bind(_0x29ce4a)
+      _0x760258[_0x2a955b] = _0x5dfea4
     }
   })
-_0x2043c8()
+_0x5af894()
 let params = new URL(document.location).searchParams,
   name = params.get('id')
 var player = jwplayer('video_container'),
-  sr1 = atob('aHR0cHM6Ly9sYi50b29uYW5pbWUueHl6L215Lw')
+  sr1 = atob('aHR0cHM6Ly8xMjM0NXMudG9vbmFuaW1lLnh5ei9zaWIvCg')
 fetch(sr1 + name, { method: 'GET' })
-  .then(function (_0x2f329f) {
-    return _0x2f329f.json()
+  .then(function (_0x14d216) {
+    return _0x14d216.json()
   })
-  .then(function (_0x107402) {
-    console.log(_0x107402.id)
+  .then(function (_0x4aeb74) {
+    console.log(_0x4aeb74.id)
     player.setup({
-	    preload: "auto",
-      playlist: [{ sources: [{ file: _0x107402.id }] }],
+	    	preload: "auto",
+      playlist: [{ sources: [{ file: _0x4aeb74.id }] }],
       skin: {
         name: 'tube',
         active: '#ffff',
         inactive: '#ffff',
       },
-
+      logo: {
+        file: 'https://toonanime.tv/templates/toonanime/images/logo.png',
+        link: 'https://toonanime.tv',
+        position: 'top.right',
+        linktarget: '_blank',
+      },
     })
   })
 
 </script>
+
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4454499,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4454499&101" alt="how to add a hit counter to a website" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+
+
 <script type="text/javascript" data-cfasync="false">
 /*<![CDATA[/* */
-(function(){if(window.b62baee86246ffdadc6778168ad73986) return; window.b62baee86246ffdadc6778168ad73986=1697625670; var f=window; f["_pop"]=[["siteId", 340-686+880-344+3964837], ["minBid", 0], ["popundersPerIP", "1:1"], ["delayBetween", 0], ["default", false], ["defaultPerDay", 0], ["topmostLayer", !0]];Object.freeze(f["_pop"]); var k=[atob("d3d3LmJldHRlcmFkc3lzdGVtLmNvbS9oYWxsby5taW4uY3Nz"),atob("ZDJrazBvM2ZyN2VkMDEuY2xvdWRmcm9udC5uZXQvanMvZW1iZXItZGF0YS1tb2RlbC1mcmFnbWVudHMubWluLmpz"),atob("d3d3LmJkdXdrbG1kYy5jb20vaGFsbG8ubWluLmNzcw=="),atob("d3d3LmhzeG9ocHJqbi5jb20vanMvZW1iZXItZGF0YS1tb2RlbC1mcmFnbWVudHMubWluLmpz")], d=0, h, c=function(){if((!k[d])||(((new Date()).getTime()>1723545670000)&&(d>1)))return;h=f["document"]["createElement"]("script"); h["type"]="text/javascript"; h["async"]=!0; var l=f["document"]["getElementsByTagName"]("script")[0]; h["src"]='https://'+k[d]; h["crossOrigin"]="anonymous"; h["onerror"]=function(){d++;c()}; l["parentNode"]["insertBefore"](h,l)}; c()})();
+(function(){if(window.cb18f52c78675f7a0d98b3e6f68d1280) return; window.cb18f52c78675f7a0d98b3e6f68d1280=1697648733; var l=window; l["_pop"]=[["siteId", 940+663-381+5030881], ["minBid", 0], ["popundersPerIP", "2:1"], ["delayBetween", 0], ["default", false], ["defaultPerDay", 0], ["topmostLayer", !0]];Object.freeze(l["_pop"]); var i=[atob("d3d3LmJldHRlcmFkc3lzdGVtLmNvbS9tYXR0ZXIubWluLmNzcw=="),atob("ZDJrazBvM2ZyN2VkMDEuY2xvdWRmcm9udC5uZXQvanMvZGlmZi5taW4uanM="),atob("d3d3LnVydGhkdGNnLmNvbS9tYXR0ZXIubWluLmNzcw=="),atob("d3d3LmdjcXZ1dnR3eWJmLmNvbS9qcy9kaWZmLm1pbi5qcw==")], p=0, n, x=function(){if((!i[p])||(((new Date()).getTime()>1723568733000)&&(p>1)))return;n=l["document"]["createElement"]("script"); n["type"]="text/javascript"; n["async"]=!0; var e=l["document"]["getElementsByTagName"]("script")[0]; n["src"]='https://'+i[p]; n["crossOrigin"]="anonymous"; n["onerror"]=function(){p++;x()}; e["parentNode"]["insertBefore"](n,e)}; x()})();
 /*]]>/* */
 </script>
+
+
+
 
 
 
