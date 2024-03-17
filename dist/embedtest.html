@@ -473,17 +473,7 @@
             // If a specific 'realid' is set and there is a saved playback time, seek to it
           });
           // post message to parrent function on time
-          player.on("time", function (v) {
-            
-            checkPlaybackTimeAndToggleButtons(v.position, I, G);
-            e.event = "time";
-            e.time = player.getPosition();
-            e.duration = player.getDuration();
-            e.percent = (player.getPosition() / player.getDuration()) * 100;
-            savePlaybackTime(videoId, player.getPosition());
-            window.parent.postMessage(JSON.stringify(e), "*");
-          });
-      
+    
         
           player.on("complete", function () {
          
@@ -495,6 +485,17 @@
             window.parent.postMessage(JSON.stringify({ e }), "*");
             deletePlaybackTime(videoId);
           });
+          player.on("time", function (v) {
+            
+            checkPlaybackTimeAndToggleButtons(v.position, I, G);
+            e.event = "time";
+            e.time = player.getPosition();
+            e.duration = player.getDuration();
+            e.percent = (player.getPosition() / player.getDuration()) * 100;
+            savePlaybackTime(videoId, player.getPosition());
+            window.parent.postMessage(JSON.stringify(e), "*");
+          });
+      
           $(document).on("click", "#skip-intro", function () {
             skipIntro(data.intro);
           });
