@@ -482,7 +482,7 @@
             e.time = player.getPosition();
             console.log(e);
             e.duration = player.getDuration();
-            window.parent.postMessage(JSON.stringify({ e }), "*");
+            window.parent.postMessage(JSON.stringify( e ), "*");
             deletePlaybackTime(videoId);
           });
           player.on("time", function (v) {
