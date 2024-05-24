@@ -1,189 +1,835 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<!--     <script type="text/javascript">
-        document.addEventListener('contextmenu', event => event.preventDefault());
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/devtools-detector" type="text/javascript"></script>
-    <script type="text/javascript">
-        !function() { navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i) || (devtoolsDetector.addListener(function(t, e) { t && (document.location.href = "https://www.google.com") }), devtoolsDetector.launch())
-        }();
-    </script> -->
-    <meta name="referrer" content="no-referrer">
-<title></title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="robots" content="noindex,nofollow" />
-<meta http-equiv="content-language" content="en" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
-<style>
-        body{ padding: 0; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.6em; color: #fff; height: 100vh; position: relative; background: rgb(0,0,0); background: linear-gradient(180deg, rgba(0,0,0,1) 60%, rgba(23,23,23,1) 100%); }
-body.not-found{ background: #f6f6f6 !important; color: #000;}
-.mg-3mb3d{ position: absolute; top: 0; left: 0; right: 0; bottom: 0;}
-.mg3-player iframe, #fix-area, #megacloud-player{ width: 100% !important; height: 100% !important; position: absolute; z-index: 4; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;}
-.content-center{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
-.content-center .text-large{ font-size: 2em; font-weight: bold; line-height: 1.5; margin-bottom: 1rem;}
-.content-center .cc-img img{ width: 160px; margin-bottom: 2rem;}
-.error-content{ width: 80%; max-width: 600px; display: block; text-align: center;}
-.loading-content{ width: 80%; max-width: 400px; display: block; text-align: center;}
-.loading-content .text{ margin-top: 2rem; font-size: 1.2em; line-height: 1.6;}
-/* loading */
-.load-circle {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
-    transform: scale(1.2);
-}
-.load-circle div {
-    position: absolute;
-    border: 4px solid #fff;
-    opacity: 1;
-    border-radius: 50%;
-    animation: load-circle 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-}
-.load-circle div:nth-child(2) {
-    animation-delay: -0.5s;
-}
-@keyframes load-circle {
-    0% {
-        top: 36px;
-        left: 36px;
-        width: 0;
-        height: 0;
-        opacity: 0;
-    }
-    4.9% {
-        top: 36px;
-        left: 36px;
-        width: 0;
-        height: 0;
-        opacity: 0;
-    }
-    5% {
-        top: 36px;
-        left: 36px;
-        width: 0;
-        height: 0;
-        opacity: 1;
-    }
-    100% {
-        top: 0px;
-        left: 0px;
-        width: 72px;
-        height: 72px;
-        opacity: 0;
-    }
-}
-
-@media screen and (max-height: 320px){
-    body{ font-size: 14px; line-height: 1.4;}
-    .content-center .cc-img img{ width: 100px; margin-bottom: 10px;}
-    .content-center .text-large{ margin-bottom: .5rem; font-size: 1.4em;}
-    .load-circle{ transform: scale(1);}
-    .loading-content .text{ margin-top: 1rem;}
-}
-
-[button="download-button"] .jw-icon {width:100%}
-
-.botright{position: absolute; z-index: 90; bottom: 120px; right: 60px; font-family: Arial, Helvetica, sans-serif;}
-.botright .zbtn{ display: inline-block; font-size: 16px; font-weight: bold; outline: none; text-decoration: none !important; padding: 12px 15px; line-height: 1; border: 2px solid #fff !important; box-shadow: 0 0 10px 0 rgba(0,0,0,.5); border-radius: 6px; background-color: #fff; color: #000 !important;}
-.botright .zbtn-outline{ background-color: transparent !important; color: #fff !important; text-shadow: 0 0 3px #000 !important;}
-.botright .zbtn{ margin-left: 6px}
-@media screen and (max-width: 1279px){
-    .botright{ right: 20px; bottom: 70px;}
-}
-@media screen and (max-width: 800px){
-    .botright .zbtn{ font-size: 14px !important; padding: 8px 10px !important; border-radius: 3px;}
-}
-
-.jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-background{ background-color: rgba(255,255,255,.2) !important;}
-.jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-buffered{ background-color: rgba(255,255,255,.1) !important;}
-.jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-progress{ background-color: #008da7 !important;}
-.jw-slider-time .jw-intro,.jw-slider-time .jw-outro {background-color: #fe003d;height: 10px;z-index:3; transform: translate(0,0) scale(1,.6); transition: transform 150ms ease-in-out;}
-.jw-slider-time:hover .jw-intro, .jw-slider-time:focus .jw-intro,.jw-slider-time:hover .jw-outro, .jw-slider-time:focus .jw-outro {transform: translate(0,0) scale(1,1) !important;}
-.jw-slider-container .jw-knob {z-index: 6;}
-.jw-slider-container .jw-progress {z-index: 5;}
-@media screen and (max-width: 1279px){
-    .jw-slider-time .jw-intro, .jw-slider-time .jw-outro{ height: 6px}
-}
-
-
-
-
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@0.6.2/build/p2p-media-loader-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@0.6.2/build/p2p-media-loader-hlsjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hola.org/jwplayer-hlsjs@latest/dist/jwplayer.hlsjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@0.14.17"></script>
   
+   
 
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.6em;
+        color: #fff;
+        height: 100vh;
+        position: relative;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 1) 60%,
+          rgba(23, 23, 23, 1) 100%
+        );
+      }
+      body.not-found {
+        background: #f6f6f6 !important;
+        color: #000;
+      }
+      .mg-3mb3d {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      .mg3-player iframe,
+      #fix-area,
+      #megacloud-player {
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute;
+        z-index: 4;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+      }
+      .content-center {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .content-center .text-large {
+        font-size: 2em;
+        font-weight: bold;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+      }
+      .content-center .cc-img img {
+        width: 160px;
+        margin-bottom: 2rem;
+      }
+      .error-content {
+        width: 80%;
+        max-width: 600px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 5;
+        
+        text-transform: uppercase;
+        font-size: 1.2em;
+        line-height: 1.6;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+     
+      .loading-content {
+        width: 80%;
+        max-width: 400px;
+        display: block;
+        text-align: center;
+      }
+      .loading-content .text {
+        margin-top: 2rem;
+        font-size: 1.2em;
+        line-height: 1.6;
+      }
+      /* loading */
+      .load-circle {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+        transform: scale(1.2);
+      }
+      .load-circle div {
+        position: absolute;
+        border: 4px solid #fff;
+        opacity: 1;
+        border-radius: 50%;
+        animation: load-circle 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+      }
+      .load-circle div:nth-child(2) {
+        animation-delay: -0.5s;
+      }
+      @keyframes load-circle {
+        0% {
+          top: 36px;
+          left: 36px;
+          width: 0;
+          height: 0;
+          opacity: 0;
+        }
+        4.9% {
+          top: 36px;
+          left: 36px;
+          width: 0;
+          height: 0;
+          opacity: 0;
+        }
+        5% {
+          top: 36px;
+          left: 36px;
+          width: 0;
+          height: 0;
+          opacity: 1;
+        }
+        100% {
+          top: 0px;
+          left: 0px;
+          width: 72px;
+          height: 72px;
+          opacity: 0;
+        }
+      }
+
+      @media screen and (max-height: 320px) {
+        body {
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        .content-center .cc-img img {
+          width: 100px;
+          margin-bottom: 10px;
+        }
+        .content-center .text-large {
+          margin-bottom: 0.5rem;
+          font-size: 1.4em;
+        }
+        .load-circle {
+          transform: scale(1);
+        }
+        .loading-content .text {
+          margin-top: 1rem;
+        }
+      }
+
+      [button="download-button"] .jw-icon {
+        width: 100%;
+      }
+
+      .botright {
+        position: absolute;
+        z-index: 90;
+        bottom: 120px;
+        right: 60px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .botright .zbtn {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        outline: none;
+        text-decoration: none !important;
+        padding: 12px 15px;
+        line-height: 1;
+        border: 2px solid #fff !important;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 6px;
+        background-color: #fff;
+        color: #000 !important;
+      }
+      .botright .zbtn-outline {
+        background-color: transparent !important;
+        color: #fff !important;
+        text-shadow: 0 0 3px #000 !important;
+      }
+      .botright .zbtn {
+        margin-left: 6px;
+      }
+      @media screen and (max-width: 1279px) {
+        .botright {
+          right: 20px;
+          bottom: 70px;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        .botright .zbtn {
+          font-size: 14px !important;
+          padding: 8px 10px !important;
+          border-radius: 3px;
+        }
+      }
+
+      .jw-slider-horizontal.jw-chapter-slider-time
+        .jw-slider-container
+        .jw-timesegment-background {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+      }
+      .jw-slider-horizontal.jw-chapter-slider-time
+        .jw-slider-container
+        .jw-timesegment-buffered {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      .jw-slider-horizontal.jw-chapter-slider-time
+        .jw-slider-container
+        .jw-timesegment-progress {
+        background-color: #008da7 !important;
+      }
+      .jw-slider-time .jw-intro,
+      .jw-slider-time .jw-outro {
+        background-color: #fe003d;
+        height: 10px;
+        z-index: 3;
+        transform: translate(0, 0) scale(1, 0.6);
+        transition: transform 150ms ease-in-out;
+      }
+      .jw-slider-time:hover .jw-intro,
+      .jw-slider-time:focus .jw-intro,
+      .jw-slider-time:hover .jw-outro,
+      .jw-slider-time:focus .jw-outro {
+        transform: translate(0, 0) scale(1, 1) !important;
+      }
+      .jw-slider-container .jw-knob {
+        z-index: 6;
+      }
+      .jw-slider-container .jw-progress {
+        z-index: 5;
+      }
+      @media screen and (max-width: 1279px) {
+        .jw-slider-time .jw-intro,
+        .jw-slider-time .jw-outro {
+          height: 6px;
+        }
+      }
+      #video-ad-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 80%;
+            height: 80%;
+        }
+        .progress-circle {
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+.circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #e6e6e6;
+    position: relative;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.mask, .fill {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    clip: rect(0px, 75px, 150px, 0px);
+}
+
+.mask.full, .fill {
+    clip: rect(0px, 75px, 150px, 0px);
+}
+
+.mask.half {
+    clip: rect(0px, 150px, 150px, 75px);
+}
+
+.fill {
+    background: #00aaff;
+    transform: rotate(0deg);
+    transform-origin: center;
+    transition: transform 0.2s;
+}
+
+.fill.fix {
+    clip: auto;
+    background: inherit;
+}
+
+.inside-circle {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00aaff;
+}
 
     </style>
-</head>
-<script>
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://mb.toonanime.xyz/static/player/v/8.8.2e/jwplayer.js?v=9"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      jwplayer.key = "ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=";
+    </script>
+  </head>
+  <body oncontextmenu="return false;">
+   
+    <div class="mg-3mb3d">
+      <div class="mg3-player">
+        <div class="fix-area" id="megacloud-player">
+          <div class="content-center">
+      
+            <div class="loading-content" id="loading">
+              <div class="load-circle">
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="error-content" style="display: none">
+          <div class="text">
+         
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
 
-    var autoPlay = urlParams.get('autoPlay') || 1;
-    var dataid = urlParams.get('id') || 'defaultDataIdValue';
-    var epid = urlParams.get('data-realid') || 'defaultEpidValue';
-    var oa = urlParams.get('oa') || 0;
-    var asi = urlParams.get('asi') || 0;
-    var time = urlParams.get('time') || 0;
-    const settings = {
-      "time": time,
-      "autoPlay": autoPlay,
-      "playOriginalAudio": oa,
-      "autoSkipIntro": asi,
-      "vast": 0
-    };
-
+    </script>
+        <script>
+        
         </script>
-<body>
-<div class="mg-3mb3d">
-<div class="mg3-player">
-<div class="fix-area" id="megacloud-player" >
-<div class="content-center">
-<div class="loading-content" id="loading">
-<div class="load-circle">
-<div></div>
-<div></div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="error-content" style="display: none;">
-<div class="text">Brave browser does not support our player. Please try with other browsers such as
-Chrome or Firefox.
-</div>
-</div>
-</div>
-</div>
-
-<script type="text/javascript">
-  
-     var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-
-    var dataid = urlParams.get('id') || 'defaultDataIdValue';
-    var epid = urlParams.get('data-realid') || 'defaultEpidValue';
-
-    var divElement = document.getElementById("megacloud-player");
-    divElement.setAttribute("data-id", dataid);
-    divElement.setAttribute("data-realid", epid);
-    divElement.setAttribute("data-mediaid",dataid);
-    divElement.setAttribute("data-fileversion",0);
-
-</script>
-<script src="/static/test.js?v=0.1"></script>
-<script type="text/javascript" src="/static/hls.js?v=0.1"></script>
-<script type="text/javascript" src="/static/pmediaplay.js?v=0.1"></script> 
-
     
-
     
+           
+                <script type="text/javascript">
+              
+    </script>
+            <script type="text/javascript">
+      $(document).ready(function () {
+        let params = new URL(document.location).searchParams;
 
-
-
+        var autoPlay = params.get("autoPlay") || "0";
+        var oa = params.get("oa") || "0";
+        var asi = params.get("asi") || "0";
+        var time = params.get("time") || "0";
+        const videoId = new URL(document.location).searchParams.get("id");
+        const settings = {
+          time: parseInt(time) || 0,
+          autoPlay: parseInt(autoPlay) || 0,
+          playOriginalAudio: parseInt(oa) || 0,
+          autoSkipIntro: parseInt(asi) || 0,
+          vast: 0,
+        };
+        const player = jwplayer("megacloud-player");
+        var configP2p = {
+  segments: {
+          swarmId: videoId,
+          forwardSegmentCount:50,
           
+        },
+        loader: {
+           // how long to store the downloaded segments for P2P sharing
+    cachedSegmentExpiration:86400000,
+    // count of the downloaded segments to store for P2P sharing
+    cachedSegmentsCount:1000,
+
+    // first 4 segments (priorities 0, 1, 2 and 3) are required buffer for stable playback
+    requiredSegmentsPriority:2,
+
+    // each 1 second each of 10 segments ahead of playhead position gets 6% probability for random HTTP download
+    httpDownloadMaxPriority:9,
+    httpDownloadProbability:0.06,
+    httpDownloadProbabilityInterval: 1000,
+
+    // disallow randomly download segments over HTTP if there are no connected peers
+    httpDownloadProbabilitySkipIfNoPeers: true,
+    useP2p : true,
+    // P2P will try to download only first 51 segment ahead of playhead position
+    p2pDownloadMaxPriority: 50,
+
+    // 1 second timeout before retrying HTTP download of a segment in case of an error
+    httpFailedSegmentTimeout:1000,
+
+    // number of simultaneous downloads for P2P and HTTP methods
+    simultaneousP2PDownloads:20,
+    simultaneousHttpDownloads:3,
+
+    // enable mode, that try to prevent HTTP downloads on stream start-up
+    httpDownloadInitialTimeout: 120000, // try to prevent HTTP downloads during first 2 minutes
+    httpDownloadInitialTimeoutPerSegment: 17000, // try to prevent HTTP download per segment during first 17 seconds
+
+    // allow to continue aborted P2P downloads via HTTP
+    httpUseRanges: true,
+          trackerAnnounce : [
+            'wss://tracker.openwebtorrent.com'
+          ],
+          rtcConfig: {
+            iceServers: [
+              {
+                urls: [
+                  "stun:stun.l.google.com:19302",
+                  "stun:global.stun.twilio.com:3478",
+                ],
+              },
+            ],
+          
+          },
+        },
+      };
+
+        var engine = new p2pml.hlsjs.Engine(configP2p);
+     
+        const episodeId = new URL(document.location).searchParams.get("epid");
+        const realId = $("#megacloud-player").data("realid");
+        //https://cdn1.vidcdn.xyz/ajax/embed-6/getSources?id=Fb8kAkw3JJak
+        //https://cdn2.vidcdn.xyz/sib2/${videoId}?epid=${episodeId}
+        const videoSourceUrl = `https://r.vidcdn.xyz/v1/api/get_sources/${videoId}?epid=${episodeId}`;
+        var  e = { channel: 'megacloud' }
+        const savedTime = getPlaybackTime(videoId);
+        // Fetch video data and configure the player
+        function fetchAndConfigurePlayer() {
+          $.get(videoSourceUrl, function (data) {
+            if (data) {
+            if (data.status == "transcoding") {
+              $("#loading").hide();
+              $(".transcoding-content").show();
+              progress = data.progress
+              //error text append
+              document.addEventListener("DOMContentLoaded", function() {
+    const progressCircle = document.getElementById('progress-circle');
+    const fill = progressCircle.querySelector('.fill');
+    const insideCircle = progressCircle.querySelector('.inside-circle');
+    
+    
+    
+    function updateProgress(value) {
+        let angle = (value / 100) * 360;
+        if (angle <= 180) {
+            fill.style.transform = `rotate(${angle}deg)`;
+        } else {
+            fill.style.transform = `rotate(${angle}deg)`;
+            progressCircle.querySelector('.mask.full').style.clip = 'rect(auto, auto, auto, auto)';
+        }
+        insideCircle.textContent = `${value}%`;
+    }
+
+    function simulateProgressUpdate() {
+        if (data.process < 100) {
+            data.process += 1;
+            updateProgress(data.process);
+            setTimeout(simulateProgressUpdate, 100); // Update every 100ms
+        }
+    }
+
+    simulateProgressUpdate();
+});
+              
+            }
+            try {
+              configurePlayer(data);
+            }
+            catch (e) {
+              $("#loading").hide();
+              $(".error-content").show();
+              //error text append
+              $(".error-content .text").html("Video unavailable. Please try again later.");
+            }
+             
+              
+            }
+          }).fail(function () {
+            $("#loading").hide();
+            $(".error-content").show();
+            //error text append
+            $(".error-content .text").html("Video unavailable. Please try again later.");
+
+          });
+        }
+        function configurePlayer(data) {
+          console.log(data);
+          const I = data.intro;
+          const G = data.outro;
+ function o() {
+    // Define a base configuration for JWPlayer
+    let config = {
+            preload: "auto",
+          
+          
+            autostart: Boolean(parseInt(settings.autoPlay)),
+            playbackRateControls: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2],
+            mute: Boolean(parseInt(settings.playOriginalAudio)),
+            cast: {},
+            logo: {
+              file: "https://toonanime.tv/templates/toonanime/images/logo.png",
+              link: "https://toonanime.tv",
+              position: "top.right",
+              linktarget: "_blank",
+            },
+            
+          }
+          return config;
+        }
+       
+  ; // Assuming 'T' is a global variable or has been defined elsewhere
+    var m = new URL(document.location).searchParams;
+    // Check for debug mode and setup event listeners for P2P functionality
+    if (m.get('_debug')) { // Assuming 'm' is previously defined and represents URLSearchParams
+    $('.mg3-player').prepend('<div style="position: absolute; z-index: 90; left: 0; top: 0;"><p>Peers: <span id="id"></span></p><p>HTTP: <span id="http-bytes"></span></p><p>PEER: <span id="peer-bytes"></span></p><p>UPLOADED: <span id="peer-uploaded"></span></p> <p>p2p percentage: <span id="percentage-p2p"></span></p></div>')
+  
+  }
+
+  
 
 
-</body>
+
+var config = o();
+config.playlist = [
+              {
+                sources: data.sources,
+                tracks: data.tracks,
+              },
+            ],
+          
+          player.setup(config);
+         
+          jwplayer_hls_provider.attach();
+
+       
+        p2pml.hlsjs.initJwPlayer(player, {
+                    liveSyncDurationCount: 5, // To have at least 7 segments in queue
+                    loader: engine.createLoaderClass(),
+                });
+                var allpeer= []
+
+                 
+ if (m.get('_debug')) {               
+  engine.on("peer_connect", function(peer )  {
+                    allpeer.push(peer)
+                    setTimeout(() => {
+                      document.getElementById('id').innerHTML =Object.values(allpeer).map(cF => cF.remoteAddress).join(', ');
+                    }, 200)
+                    
+                })
+engine.on("peer_close", function (peer) {
+    allpeer = Object.values(allpeer).filter(cF => cF !== peer)
+    setTimeout(() => {
+      document.getElementById('id').innerHTML = Object.values(allpeer).map(cF => cF.remoteAddress).join(', ');
+    }, 200)
+})
+               
+var totalP2P = 0;
+var totalHTTP = 0;
+
+engine.on('piece_bytes_downloaded', function (method, bytes, peerId) {
+    if (method === 'p2p') {  
+        totalP2P += bytes;  
+    } else if (method === 'http') {
+        totalHTTP += bytes;
+    }
+
+    // Update the display outside the conditional blocks to ensure it's updated every time
+    $("#peer-bytes").text(totalP2P + ' bytes');
+    $("#http-bytes").text(totalHTTP + ' bytes');
+    
+    // Calculate and update the percentage asynchronously
+    setTimeout(() => {
+        var percentageP2P = (totalP2P + totalHTTP) > 0 ? Math.round((totalP2P / (totalP2P + totalHTTP)) * 100) : 0;
+        $("#percentage-p2p").text(percentageP2P + '%');
+    }, 200);
+});
+engine.on('piece_bytes_uploaded',function (method, bytes) {
+    if (method === 'p2p') {  
+        $("#peer-uploaded").text(bytes);    
+    }
+})
+ }
+
+            
+          player.on("ready", function () {
+             // Remove the default rewind button
+            $(".jw-icon-rewind").remove();
+
+            // Add custom skip buttons
+            player.addButton(
+              "/images/skip-10-next.svg?v=0.1",
+              "+10s",
+              function () {
+                // Logic for skipping forward 10 seconds
+                const currentPosition = player.getPosition();
+                player.seek(currentPosition + 10);
+              },
+              "forward-10s-button"
+            );
+
+            player.addButton(
+              "/images/skip-10-prev.svg?v=0.1",
+              "-10s",
+              function () {
+                // Logic for skipping backward 10 seconds
+                const currentPosition = player.getPosition();
+                player.seek(Math.max(currentPosition - 10, 0)); // Ensure we don't seek to a negative time
+              },
+              "rewind-10s-button"
+            );
+
+            // Prepare overlay controls
+            $("#megacloud-player").prepend('<div id="overlay-control"></div>'); // Ensure you have a container with the ID 'megacloud-player'
+
+            // Conditional buttons based on some conditions 'I' and 'g'
+            // Assuming 'I' is a condition for showing the Skip Intro button
+            $("#overlay-control").prepend(
+              '<div class="botright"><a style="display: none;" href="javascript:;" id="skip-intro" class="zbtn zbtn-outline">Skip Intro</a></div>'
+            );
+
+            // Assuming 'g' is a condition for showing the Skip Outro button
+            $("#overlay-control").prepend(
+              '<div class="botright"><a style="display: none;" href="javascript:;" id="skip-outro" class="zbtn zbtn-outline">Skip Outro</a></div>'
+            );
+          });
+
+          player.on("firstFrame", function () {
+            var introWidthPercentage = 0,
+              introStartPositionPercentage = 0,
+              videoDuration = player.getDuration();
+              var startTime = settings.time;
+              if (videoId) {
+      // X is assumed to be a function that retrieves saved times from local storage
+        console.log(savedTime)
+        if (savedTime && savedTime > 0) {
+           player.seek(savedTime);
+        } else if (startTime > 0) {
+            player.seek(startTime);
+        }
+    } else if (startTime > 0) {
+        player.seek(startTime);
+    }
+                 
+             
+            //to do add auto seek with localStorage
+
+            // If there's a saved playback time, seek to it
+
+            // If there is intro data and no existing intro marker, calculate and append it
+            if (I && $(".jw-intro").length === 0) {
+              introStartPositionPercentage = (I.start / videoDuration) * 100;
+              introWidthPercentage = ((I.end - I.start) / videoDuration) * 100;
+              $(".jw-slider-container").append(
+                '<div class="jw-reset jw-intro" style="margin-left: ' +
+                  introStartPositionPercentage +
+                  "%; width: " +
+                  introWidthPercentage +
+                  '%"></div>'
+              );
+            }
+
+            // If there is outro data and no existing outro marker, calculate and append it
+            if (G && $(".jw-outro").length === 0) {
+              // Ensure outro end does not exceed video duration
+              G.end = G.end > videoDuration ? videoDuration : G.end;
+              var outroStartPositionPercentage =
+                (G.start / videoDuration) * 100 -
+                introWidthPercentage -
+                introStartPositionPercentage;
+              var outroWidthPercentage =
+                ((G.end - G.start) / videoDuration) * 100;
+              $(".jw-slider-container").append(
+                '<div class="jw-reset jw-outro" style="margin-left: ' +
+                  outroStartPositionPercentage +
+                  "%; width: " +
+                  outroWidthPercentage +
+                  '%"></div>'
+              );
+            }
+      
+            // If a specific 'realid' is set and there is a saved playback time, seek to it
+          });
+          // post message to parrent function on time
+    
+        
+          player.on("complete", function () {
+         
+            e.event = "complete";
+            e.percent = 100;
+            e.time = player.getPosition();
+            console.log(e);
+            e.duration = player.getDuration();
+            window.parent.postMessage(JSON.stringify( e ), "*");
+            deletePlaybackTime(videoId);
+          });
+          player.on("time", function (v) {
+            //console.log(engine)
+            
+            checkPlaybackTimeAndToggleButtons(v.position, I, G);
+            e.event = "time";
+            e.time = player.getPosition();
+            e.duration = player.getDuration();
+            e.percent = (player.getPosition() / player.getDuration()) * 100;
+            savePlaybackTime(videoId, player.getPosition());
+            window.parent.postMessage(JSON.stringify(e), "*");
+          });
+      
+          $(document).on("click", "#skip-intro", function () {
+            skipIntro(data.intro);
+          });
+
+          $(document).on("click", "#skip-outro", function () {
+            skipOutro(data.outro);
+          });
+     
+        }
+    
+      
+      
+          
+        function skipIntro(I) {
+       
+          if (player && I && typeof I.end !== "undefined") {
+            player.seek(I.end);
+          }
+        }
+
+        function skipOutro(G) {
+          // Ensure 'player' is accessible and 'G.end' is defined
+          if (player && G && typeof G.end !== "undefined") {
+            player.seek(G.end);
+          }
+        }
+        function updatePlaybackTime(videoId, newPlaybackTime) {
+    savePlaybackTime(videoId, newPlaybackTime); // Directly reuse savePlaybackTime
+}
+
+      
+
+
+        
+
+
+       
+        function getPlaybackTime(videoId) {
+    var key = 'vc_' + videoId + '_time';
+    var value = localStorage.getItem(key);
+    return value ? parseFloat(value) : null;
+}
+    // Attempt to retrieve the item from local storage using the provided key.
+   
+function savePlaybackTime(videoId, playbackTime) {
+    var key = 'vc_' + videoId + '_time';
+    localStorage.setItem(key, playbackTime.toString());
+}
+function deletePlaybackTime(videoId) {
+    var key = 'vc_' + videoId + '_time';
+    localStorage.removeItem(key);
+}
+
+function checkPlaybackTimeAndToggleButtons(currentTime, I, G) {
+  console.log(currentTime >= I.start && currentTime < I.end)
+          // Check if the current time is within the intro segment
+          if (currentTime >= I.start && currentTime < I.end) {
+            // If auto-skip for the intro is enabled, call the function to skip the intro
+            if (parseInt(settings.autoSkipIntro) === 1) {
+              skipIntro(I);
+            } else {
+              // Otherwise, show the "Skip Intro" button
+              $("#skip-intro").show();
+            }
+          } else {
+            // Hide the "Skip Intro" button if we're not in the intro segment
+            $("#skip-intro").hide();
+          }
+
+          // Check if the current time is within the outro segment
+          if (currentTime >= G.start && currentTime < G.end) {
+            // If auto-skip for the outro is enabled (assuming same setting as intro), call the function to skip the outro
+            if (parseInt(settings.autoSkipIntro) === 1) {
+              skipOutro(G);
+            } else {
+              // Otherwise, show the "Skip Outro" button
+              $("#skip-outro").show();
+            }
+          } else {
+            // Hide the "Skip Outro" button if we're not in the outro segment
+            $("#skip-outro").hide();
+          }
+        }
+   
+        fetchAndConfigurePlayer();
+       
+    })
+
+
+    </script>
+  </body>
 </html>
