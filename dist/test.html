@@ -521,7 +521,7 @@
           });
         }
         function configurePlayer(data) {
-          console.log(data);
+          
           const I = data.intro;
           const G = data.outro;
  function o() {
@@ -669,7 +669,7 @@ engine.on('piece_bytes_uploaded',function (method, bytes) {
               var startTime = settings.time;
               if (videoId) {
       // X is assumed to be a function that retrieves saved times from local storage
-        console.log(savedTime)
+       
         if (savedTime && savedTime > 0) {
            player.seek(savedTime);
         } else if (startTime > 0) {
@@ -726,13 +726,13 @@ engine.on('piece_bytes_uploaded',function (method, bytes) {
             e.event = "complete";
             e.percent = 100;
             e.time = player.getPosition();
-            console.log(e);
+            
             e.duration = player.getDuration();
             window.parent.postMessage(JSON.stringify( e ), "*");
             deletePlaybackTime(videoId);
           });
           player.on("time", function (v) {
-            //console.log(engine)
+            //
             
             checkPlaybackTimeAndToggleButtons(v.position, I, G);
             e.event = "time";
@@ -797,7 +797,7 @@ function deletePlaybackTime(videoId) {
 }
 
 function checkPlaybackTimeAndToggleButtons(currentTime, I, G) {
-  console.log(currentTime >= I.start && currentTime < I.end)
+  
           // Check if the current time is within the intro segment
           if (currentTime >= I.start && currentTime < I.end) {
             // If auto-skip for the intro is enabled, call the function to skip the intro
@@ -833,5 +833,20 @@ function checkPlaybackTimeAndToggleButtons(currentTime, I, G) {
 
 
     </script>
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4832601,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4832601&101" alt="site stats" border="0"></a></noscript>
+    <script type="text/javascript">
+    aclib.runPop({
+        zoneId: '8432046',
+    });
+</script>
   </body>
 </html>
