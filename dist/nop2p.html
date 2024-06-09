@@ -363,18 +363,8 @@
         </div>
       </div>
     </div>
-    <script>
-
-    </script>
-        <script>
+    
         
-        </script>
-    
-    
-           
-                <script type="text/javascript">
-              
-    </script>
             <script type="text/javascript">
       $(document).ready(function () {
         let params = new URL(document.location).searchParams;
@@ -392,64 +382,7 @@
           vast: 0,
         };
         const player = jwplayer("megacloud-player");
-        var configP2p = {
-  segments: {
-          swarmId: videoId,
-          forwardSegmentCount:50,
-          
-        },
-        loader: {
-           // how long to store the downloaded segments for P2P sharing
-    cachedSegmentExpiration:86400000,
-    // count of the downloaded segments to store for P2P sharing
-    cachedSegmentsCount:1000,
-
-    // first 4 segments (priorities 0, 1, 2 and 3) are required buffer for stable playback
-    requiredSegmentsPriority:2,
-
-    // each 1 second each of 10 segments ahead of playhead position gets 6% probability for random HTTP download
-    httpDownloadMaxPriority:9,
-    httpDownloadProbability:0.06,
-    httpDownloadProbabilityInterval: 1000,
-
-    // disallow randomly download segments over HTTP if there are no connected peers
-    httpDownloadProbabilitySkipIfNoPeers: true,
-    useP2p : true,
-    // P2P will try to download only first 51 segment ahead of playhead position
-    p2pDownloadMaxPriority: 50,
-
-    // 1 second timeout before retrying HTTP download of a segment in case of an error
-    httpFailedSegmentTimeout:1000,
-
-    // number of simultaneous downloads for P2P and HTTP methods
-    simultaneousP2PDownloads:20,
-    simultaneousHttpDownloads:3,
-
-    // enable mode, that try to prevent HTTP downloads on stream start-up
-    httpDownloadInitialTimeout: 120000, // try to prevent HTTP downloads during first 2 minutes
-    httpDownloadInitialTimeoutPerSegment: 17000, // try to prevent HTTP download per segment during first 17 seconds
-
-    // allow to continue aborted P2P downloads via HTTP
-    httpUseRanges: true,
-          trackerAnnounce : [
-            'wss://tracker.webtorrent.dev',
-            'wss://tracker.files.fm:7073/announce'
-            
-          ],
-          rtcConfig: {
-            iceServers: [
-              {
-                urls: [
-                  "stun:stun.l.google.com:19302",
-                  "stun:global.stun.twilio.com:3478",
-                ],
-              },
-            ],
-          
-          },
-        },
-      };
-     
+        
         const episodeId = new URL(document.location).searchParams.get("epid");
         const realId = $("#megacloud-player").data("realid");
         //https://cdn1.vidcdn.xyz/ajax/embed-6/getSources?id=Fb8kAkw3JJak
