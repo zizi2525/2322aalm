@@ -5,8 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@0.6.2/build/p2p-media-loader-core.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@0.6.2/build/p2p-media-loader-hlsjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@hola.org/jwplayer-hlsjs@latest/dist/jwplayer.hlsjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@0.14.17"></script>
   
@@ -451,8 +449,6 @@
           },
         },
       };
-
-        var engine = new p2pml.hlsjs.Engine(configP2p);
      
         const episodeId = new URL(document.location).searchParams.get("epid");
         const realId = $("#megacloud-player").data("realid");
@@ -567,13 +563,10 @@ config.playlist = [
           
           player.setup(config);
          
-          jwplayer_hls_provider.attach();
+         
 
        
-        p2pml.hlsjs.initJwPlayer(player, {
-                    liveSyncDurationCount: 5, // To have at least 7 segments in queue
-                    loader: engine.createLoaderClass(),
-                });
+        
                 var allpeer= []
 
                  
