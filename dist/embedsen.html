@@ -4,18 +4,49 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="robots" content="noindex, nofollow" />
-        <title>Video Player</title>
-        <script src="https://msb.toonanime.xyz/static/hls.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.vidstack.io/player/theme.css" />
-        <link rel="stylesheet" href="https://cdn.vidstack.io/player/video.css" />
-        <script type="importmap">
-         {
+         <title>Video Player</title>
+    <script>
+async function detectAdBlock() {
+  let adBlockEnabled = false
+  const googleAdUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+  try {
+    await fetch(new Request(googleAdUrl)).catch(_ => adBlockEnabled = true)
+
+  } catch (e) {
+    adBlockEnabled = true
+   
+ 
+
+  } finally {
+   if (adBlockEnabled) {
+    document.getElementById("ddmessage").style.display = "block";
+    document.getElementById('ddmessage').innerHTML = `
+  <button id="ddclose" style="position: absolute; right: 10px; top: 10px; background: none; border: none; color: white; font-size: 20px; cursor: pointer;">&times;</button>
+  <h2>AdBlocker Detected</h2>
+  <p>Pour que cette vidéo fonctionne correctement, il est recommandé de désactiver votre bloqueur de publicités (Adblock).</p>
+  <p>Si vous voyez un écran noir, c'est probablement parce que votre bloqueur de publicités est actif. Veuillez le désactiver pour visualiser la vidéo.</p>
+`;
+document.getElementById('ddclose').addEventListener('click', function() {
+    document.getElementById('ddmessage').style.display = 'none';
+});
+    
+  }
+}
+}
+  detectAdBlock()
+    </script>
+ <script src="https://cdn.jsdelivr.net/npm/hls.js@~1/dist/hls.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.vidstack.io/player/theme.css" />
+    <link rel="stylesheet" href="https://cdn.vidstack.io/player/video.css" />
+    <!-- Import map for P2P Media Loader modules -->
+    <script type="importmap">
+      {
         "imports": {
-          "p2p-media-loader-core": "https://msb.toonanime.xyz/static/p2p-media-loader-core.es.min.js",
-          "p2p-media-loader-hlsjs": "https://msb.toonanime.xyz/static/p2p-media-loader-hlsjs.es.min.js"
+          "p2p-media-loader-core": "https://cdn.jsdelivr.net/npm/p2p-media-loader-core@^1/dist/p2p-media-loader-core.es.min.js",
+          "p2p-media-loader-hlsjs": "https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@^1/dist/p2p-media-loader-hlsjs.es.min.js"
         }
       }
-        </script>
+    </script>
         <style>
             body {
                 margin: 0;
@@ -86,7 +117,13 @@
         </style>
     </head>
     <body>
-        <div id="player-container" class="player relative"><media-button id="skip-intro" class="skip-button">Skip Intro</media-button><media-button id="skip-outro" class="skip-button">Skip Outro</media-button></div>
+        <div id="player-container" class="player relative">
+              <div id="player-container" class="player relative">
+              <div id="ddmessage" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%; max-width: 400px; background-color: rgba(0, 0, 0, 0.8); color: white; z-index: 999; padding: 20px; text-align: center; border-radius: 10px; box-shadow: 0 0 10px rgba(255,255,255,0.3);">
+      
+      
+    </div>
+            <media-button id="skip-intro" class="skip-button">Skip Intro</media-button><media-button id="skip-outro" class="skip-button">Skip Outro</media-button></div>
         <script type="module">
             const _0x5774b4 = _0x4dfc;
             (function (_0x56ba51, _0x48f5ac) {
@@ -110,7 +147,7 @@
                 }
             })(_0x44ee, -0x35570 + -0x22d79 * 0x1 + -0x1db93 * -0x4);
             import { HlsJsP2PEngine } from "p2p-media-loader-hlsjs";
-            import { VidstackPlayer, VidstackPlayerLayout } from "https://msb.toonanime.xyz/static/player.js";
+            import { VidstackPlayer, VidstackPlayerLayout } from "https://cdn.vidstack.io/player";
             const urlParams = new URL(document[_0x5774b4(0x16d)])[_0x5774b4(0xe9) + "ms"],
                 videoId = urlParams[_0x5774b4(0xbd)]("id") || _0x5774b4(0x13b) + _0x5774b4(0x175),
                 episodeId = urlParams[_0x5774b4(0xbd)](_0x5774b4(0x160) + "d") || _0x5774b4(0x9a) + _0x5774b4(0xef),
